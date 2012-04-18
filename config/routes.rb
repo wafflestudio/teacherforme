@@ -1,4 +1,8 @@
 Teacherforme::Application.routes.draw do
+  get "teachers/index"
+
+  get "students/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
