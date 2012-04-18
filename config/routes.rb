@@ -1,4 +1,8 @@
 Teacherforme::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  devise_for :users
+
   get "teachers/index"
 
   get "students/index"
