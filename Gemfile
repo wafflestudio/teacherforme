@@ -22,6 +22,7 @@ end
 gem 'jquery-rails'
 gem 'thin'
 gem 'kaminari'
+gem 'devise'
 gem 'rails_admin'
 gem 'mongoid'
 gem 'bson_ext'
@@ -40,3 +41,6 @@ gem 'bson_ext'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+
+gem "devise"
