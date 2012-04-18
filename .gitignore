@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore files list
+*.swp
+.DS_Store
+Gemfile.lock
+.rvmrc
