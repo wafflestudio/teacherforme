@@ -24,6 +24,7 @@ gem 'thin'
 gem 'kaminari'
 gem 'rails_admin'
 gem 'mongoid'
+gem 'bson_ext'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
