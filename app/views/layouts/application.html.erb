@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Teacherforme</title>
+  <title>Teacher for me</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/nav_bar' %>
+  <div class="container" style="margin-top: 40px;">
 
-<%= yield %>
+  <%= yield %>
 
+  </div>
 </body>
 </html>

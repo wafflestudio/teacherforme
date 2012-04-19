@@ -1,13 +1,13 @@
 Teacherforme::Application.routes.draw do
-  get "main/index"
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
 
-  get "teachers/index"
+  get "teachers" => "teachers#index", :as => "teachers"
 
-  get "students/index"
+  get "students" => "students#index", :as => "students"
+
+  get "about" => "main#about", :as => "about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
