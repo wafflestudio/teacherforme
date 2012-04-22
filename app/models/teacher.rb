@@ -4,5 +4,10 @@ class Teacher
 
   field :pay, type: String
   field :sex, type: Boolean
-  field :subject, type: Array
+  field :subject, type: String
+  field :phone, type: String
+  field :year, type: String
+  field :location, type: String
+
+  belongs_to :university
 end
