@@ -3,7 +3,7 @@ Teacherforme::Application.routes.draw do
 
   devise_for :users
 
-  get "teachers" => "teachers#index", :as => "teachers"
+  resources :teachers
 
   get "students" => "students#index", :as => "students"
 

@@ -8,6 +8,7 @@ class Teacher
   field :phone, type: String
   field :year, type: String
   field :location, type: String
+  field :email, type: String
 
   belongs_to :university
 end

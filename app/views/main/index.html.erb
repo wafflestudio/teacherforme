@@ -6,7 +6,7 @@
   가르칠 수 있는 지역은 <%= f.text_field :location, :placeholder => "ex) 서울, 경기, 대학동" %> 이에요.<br />
   보수로는 <%= f.number_field :pay %>만원 (8회 각 2시간 기준) 이상을 원하고<br />
   그만한 가치가 있을것임을 약속드립니다.<br />
-  연락처는 <%= f.phone_field :phone, :placeholder => "010-1234-5678" %> 이고요.<br /><br />
+  연락처는 <%= f.phone_field :phone, :placeholder => "010-1234-5678" %>, <%= f.email_field :email, :placeholder => "example@example.com" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.)<br /><br />
   
-  <%= f.submit '연락주세요^^!', :class => "btn btn-success" %>
+  <%= f.submit '연락주세요^^!', :class => "btn btn-success", :style => "width: 200px; height: 30px;" %>
 <% end -%>
