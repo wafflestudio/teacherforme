@@ -11,4 +11,11 @@ class TeachersController < ApplicationController
     end
   end
 
+  def contact
+    @teacher = Teacher.find params[:id]
+    @teacher.contact
+    redirect_to students_path
+  end
+
+
 end

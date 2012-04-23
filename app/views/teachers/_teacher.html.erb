@@ -5,7 +5,7 @@
     가르칠 수 있는 학년은 <b><%= teacher.year %></b>이고 
     가르칠 수 있는 지역은 <b><%= teacher.location %></b> 이에요.<br />
     보수로는 <b><%= teacher.pay %></b>만원 (8회 각 2시간 기준) 이상을 원하고 
-    그만한 가치가 있을것임을 약속드립니다.<br />
+    <%= teacher.comment %><br />
     연락주세요 ^^!
     <%= link_to '연락하기', '#', :class => "btn sendContact", :style => "position: absolute; right: 0; top: 0; padding-top: 35px; height: 47px; width: 55px;", "data-id" => "#{teacher.id}" %>
   </td>
