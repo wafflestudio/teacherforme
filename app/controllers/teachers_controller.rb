@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  before_filter :authenticate_user!, :only => [:contact]
   def index
     @teachers = Teacher.all
   end

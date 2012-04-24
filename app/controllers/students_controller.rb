@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:contact]
   def index
     @students = Student.all
   end
