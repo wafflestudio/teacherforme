@@ -1,3 +1,4 @@
+#coding: utf-8
 class MainController < ApplicationController
   def index
     @teacher = Teacher.new
