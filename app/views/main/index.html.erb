@@ -4,14 +4,14 @@
   <%= f.text_field :subject, :placeholder => "ex) 수학, 영어" %> 과목을 가르칠 수 있습니다.<br />
   가르칠 수 있는 대상은 
   <%# checklabel_tag in teachers helper -%>
-  <%= checklabel_tag(Teacher::ELEMENTRY, "초등") %>
-  , <%= checklabel_tag(Teacher::MIDDLE1, "중1") %>
-  , <%= checklabel_tag(Teacher::MIDDLE2, "중2") %>
-  , <%= checklabel_tag(Teacher::MIDDLE3, "중3") %>
-  , <%= checklabel_tag(Teacher::HIGH1, "고1") %>
-  , <%= checklabel_tag(Teacher::HIGH2, "고2") %>
-  , <%= checklabel_tag(Teacher::HIGH3, "고3") %>
-  , <%= checklabel_tag(Teacher::GENERAL, "일반") %>
+  <%= checklabel_tag(Teacher::ELEMENTRY[0], Teacher::ELEMENTRY[1]) %>
+  , <%= checklabel_tag(Teacher::MIDDLE1[0], Teacher::MIDDLE1[1]) %>
+  , <%= checklabel_tag(Teacher::MIDDLE2[0], Teacher::MIDDLE2[1]) %>
+  , <%= checklabel_tag(Teacher::MIDDLE3[0], Teacher::MIDDLE3[1]) %>
+  , <%= checklabel_tag(Teacher::HIGH1[0], Teacher::HIGH1[1]) %>
+  , <%= checklabel_tag(Teacher::HIGH2[0], Teacher::HIGH2[1]) %>
+  , <%= checklabel_tag(Teacher::HIGH3[0], Teacher::HIGH3[1]) %>
+  , <%= checklabel_tag(Teacher::GENERAL[0], Teacher::GENERAL[1] ) %>
   <%= f.select :want_sex, '<option value="0">남녀모두</option><option value="1">여자</option><option value="2">남자</option>'.html_safe %>이고 <br />
   가르칠 수 있는 지역은 <%= f.text_field :location, :placeholder => "ex) 서울, 경기, 대학동" %> 이에요.<br />
   보수로는 <%= f.number_field :pay %>만원 (8회 각 2시간 기준) 이상을 원하고<br />
@@ -25,7 +25,17 @@
   저는 <%= f.select :sex, '<option value="true">여자</option><option value="false">남자</option>'.html_safe %>고
   <%= f.text_field :subject, :placeholder => "ex) 수학, 영어" %> 을/를 배우길 원합니다!<br />
   <%= f.select :want_sex, '<option value="0">모든</option><option value="1">여자</option><option value="2">남자</option>'.html_safe %>선생님을 원하고요, 보수는 <%= f.number_field :pay %>만원 이상 드릴 생각이 있습니다.<br />
-  지역은 <%= f.text_field :location, :placeholder => "ex) 문래동, 낙성대동" %>, 이고 나이는 <%= f.number_field :age %>살입니다.<br /><br />
+  지역은 <%= f.text_field :location, :placeholder => "ex) 문래동, 낙성대동" %>, 이고 나이는
+   <%# radiolabel_tag in students helper -%>
+  <%= radiolabel_tag(Teacher::ELEMENTRY[0], Teacher::ELEMENTRY[1]) %>
+  , <%= radiolabel_tag(Teacher::MIDDLE1[0], Teacher::MIDDLE1[1]) %>
+  , <%= radiolabel_tag(Teacher::MIDDLE2[0], Teacher::MIDDLE2[1]) %>
+  , <%= radiolabel_tag(Teacher::MIDDLE3[0], Teacher::MIDDLE3[1]) %>
+  , <%= radiolabel_tag(Teacher::HIGH1[0], Teacher::HIGH1[1]) %>
+  , <%= radiolabel_tag(Teacher::HIGH2[0], Teacher::HIGH2[1]) %>
+  , <%= radiolabel_tag(Teacher::HIGH3[0], Teacher::HIGH3[1]) %>
+  , <%= radiolabel_tag(Teacher::GENERAL[0], Teacher::GENERAL[1] ) %>
+  입니다.<br /><br />
   <%= f.text_area :comment, :rows => 3, :placeholder => "한마디 ex) 친절하게 가르쳐주실 선생님 구해요.", :style => "width: 400px;" %><br />
   연락처는 <%= f.phone_field :phone, :placeholder => "010-1234-5678" %>, <%= f.email_field :email, :placeholder => "example@example.com" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.)<br /><br />
 

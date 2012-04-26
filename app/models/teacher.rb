@@ -1,15 +1,16 @@
+#coding: utf-8
 class Teacher
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  ELEMENTRY = "ele"
-  MIDDLE1 = "mid1"
-  MIDDLE2 = "mid2"
-  MIDDLE3 = "mid3"
-  HIGH1 = "high1"
-  HIGH2 = "high2"
-  HIGH3 = "high3"
-  GENERAL = "general"
+  ELEMENTRY = ["ele","초등"]
+  MIDDLE1 = ["mid1","중1"]
+  MIDDLE2 = ["mid2","중2"]
+  MIDDLE3 = ["mid3","중3"]
+  HIGH1 = ["high1","고1"]
+  HIGH2 = ["high2","고2"]
+  HIGH3 = ["high3","고3"]
+  GENERAL = ["general","일반"]
 
   field :year, type: Array # Student's age
 
