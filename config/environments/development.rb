@@ -13,18 +13,19 @@ Teacherforme::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :enable_startttls_auto => true,
-    :address => 'smtp.gmail.com',
-    :port => '587',
-    :authentication => :plain,
-    :domain => 'teacherfor.me',
-    :user_name => 'mailer@teacherfor.me',
-    :password => 'teacherformemailer1231'
-  }  
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => "587",
+    :domain               => 'teacherfor.me',
+    :user_name            => 'mailer@teacherfor.me',
+    :password             => 'teacherformemailer1231',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

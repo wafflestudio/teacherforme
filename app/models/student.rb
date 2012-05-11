@@ -11,4 +11,6 @@ class Student
   field :location
   field :comment
 
+  belongs_to :user
+
 end
