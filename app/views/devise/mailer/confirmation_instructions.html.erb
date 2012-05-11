@@ -1,0 +1,5 @@
+<p><%= @resource.email %>님 Teacher for me 에 가입하신걸 환영합니다 !</p>
+
+<p>메일 확인을 위해 아래 링크를 눌러주세요</p>
+
+<p><%= link_to '인증하기', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

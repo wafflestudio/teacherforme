@@ -41,6 +41,7 @@ class TeachersController < ApplicationController
         redirect_to root_path and return
       end
     end
+    @user.phone = params[:teacher_phone]
   end
 
 
