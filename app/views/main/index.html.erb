@@ -15,7 +15,7 @@
   , <%= checklabel_tag(Teacher::GENERAL[0], Teacher::GENERAL[1] ) %>
   <%= f.select :want_sex, '<option value="0">남녀모두</option><option value="1">여자</option><option value="2">남자</option>'.html_safe %>이고 <br />
   가르칠 수 있는 지역은 <%= f.text_field :location, :placeholder => "ex) 서울, 경기, 대학동" %> 이에요.<br />
-  보수로는 <%= f.number_field :pay %>만원 (8회 각 2시간 기준) 이상을 원하고<br />
+  보수로는 <%= f.number_field :pay %>만원 (8회 2시간씩 기준) 이상을 원하고<br />
   <%= f.text_area :comment, :rows => 3, :placeholder => "한마디 ex) 학생을 성실히 지도할것입니다.", :style => "width: 400px;" %><br />
   <div id="teacher_contact_info">
   연락처는 <fieldset id="teacher_email_fieldset" class="control-group" style="display: inline;"><%= email_field_tag :teacher_email, nil, :placeholder => "id@university.ac.kr important!", :style => "width:180px" %></fieldset>, <%= phone_field_tag :teacher_phone, nil, :placeholder => "010-1234-5678" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.

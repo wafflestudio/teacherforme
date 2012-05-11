@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   before_filter :authenticate_user!, :only => [:contact]
   before_filter :find_or_create_user, :only => [:create]
   def index
-    @students = Student.all
+    @students = Student.where("user.confirmed?" == true)
   end
   def create
     @student = Student.new(params[:student])

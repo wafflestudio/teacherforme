@@ -43,7 +43,7 @@ class User
 
   field :phone,   :type => String
 
-  has_many :teachers
-  has_many :students
+  has_many :teachers, dependent: :delete
+  has_many :students, dependent: :delete
 
 end

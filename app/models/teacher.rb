@@ -3,6 +3,7 @@ class Teacher
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  YEAR_HASH = {"ele" => "초등", "mid1" => "중1", "mid2" => "중2", "mid3" => "중3", "high1" => "고1", "high2" => "고2", "high3" => "고3", "general" => "일반"}
   ELEMENTRY = ["ele","초등"]
   MIDDLE1 = ["mid1","중1"]
   MIDDLE2 = ["mid2","중2"]
@@ -24,4 +25,23 @@ class Teacher
 
   belongs_to :university
   belongs_to :user
+
+  def want_sex_str
+    if self.want_sex == 0
+      "남녀모두"
+    elsif self.want_sex == 1
+      "여자"
+    else
+      "남자"
+    end
+  end
+  def year_str
+    res = ""
+    if self.year
+      self.year.each do |y|
+        res << YEAR_HASH[y]+","
+      end
+    end
+    res
+  end
 end

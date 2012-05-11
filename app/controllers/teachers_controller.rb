@@ -1,15 +1,19 @@
+#coding : utf-8
 class TeachersController < ApplicationController
   before_filter :authenticate_user!, :only => [:contact]
   before_filter :find_or_create_user, :only => [:create]
 
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.where("user.confirmed?" == true)
   end
   def create
     @teacher = Teacher.new(params[:teacher])
     @teacher.user = @user
     if @teacher.save
       flash[:success] = "Teacher info was created successfully"
+      unless @teacher.user.confirmed?
+        flash[:info] = "적어주신 이메일주소로 확인메일이 전송됩니다. 인증후 목록에 보이게 됩니다."
+      end
       redirect_to teachers_path
     else
       flash[:error] = "Teacher info was not created"
