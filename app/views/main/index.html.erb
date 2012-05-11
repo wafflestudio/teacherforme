@@ -16,7 +16,15 @@
   가르칠 수 있는 지역은 <%= f.text_field :location, :placeholder => "ex) 서울, 경기, 대학동" %> 이에요.<br />
   보수로는 <%= f.number_field :pay %>만원 (8회 각 2시간 기준) 이상을 원하고<br />
   <%= f.text_area :comment, :rows => 3, :placeholder => "한마디 ex) 학생을 성실히 지도할것입니다.", :style => "width: 400px;" %><br />
-  연락처는 <%= f.phone_field :phone, :placeholder => "010-1234-5678" %>, <%= f.email_field :email, :placeholder => "example@example.com" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.)<br /><br />
+  <div id="teacher_contact_info">
+  연락처는 <fieldset id="teacher_email_fieldset" class="control-group" style="display: inline;"><%= email_field_tag :teacher_email, nil, :placeholder => "id@university.ac.kr", :style => "width:150px" %></fieldset>, <%= phone_field_tag :teacher_phone, nil, :placeholder => "010-1234-5678" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.
+  </div>
+  <div id="teacher_new_password_box">
+    비밀번호는 <fieldset id="teacher_password_fieldset" class="control-group" style="display:inline;"><%= password_field_tag :teacher_new_password, nil, :placeholder => "password", :style => "width:150px;" %>, <%= password_field_tag :teacher_password_confirmation, nil, :placeholder => "password confirmation", :style => "width:150px;" %></fieldset> 로 하겠습니다.(수정 및 삭제를 위해 사용되며 암호화되어 저장됩니다.)
+  </div>
+  <div id="teacher_login_password_box">
+  비밀번호는 <%= password_field_tag :teacher_password, nil, :placehloder => "password", :style => "width:150px;" %> 입니다.
+  </div>
   <%= f.submit '연락주세요^^!', :class => "btn btn-success", :style => "width: 200px; height: 30px;" %>
 <% end -%>
 
@@ -37,8 +45,8 @@
   , <%= radiolabel_tag(Teacher::GENERAL[0], Teacher::GENERAL[1] ) %>
   입니다.<br /><br />
   <%= f.text_area :comment, :rows => 3, :placeholder => "한마디 ex) 친절하게 가르쳐주실 선생님 구해요.", :style => "width: 400px;" %><br />
-  연락처는 <%= f.phone_field :phone, :placeholder => "010-1234-5678" %>, <%= f.email_field :email, :placeholder => "example@example.com" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.)<br /><br />
-
+  연락처는 <%= phone_field_tag :phone, nil, :placeholder => "010-1234-5678" %>, <%= text_field_tag :email, nil, :placeholder => "example@example.com" %> 이고요. (이 개인정보는 공개되지 않고 보호됩니다.)<br /><br />
+  비밀번호는 <%= password_field_tag :password, nil, :placeholder => "password", :style => "width:150px;" %>, <%= password_field_tag :password_confirmation, nil, :placeholder => "password confirmation", :style => "width:150px;" %> 로 하겠습니다.(수정 및 삭제를 위해 사용되며 암호화되어 저장됩니다.)<br />
   <%= f.submit "연락주세요!!", :class => "btn btn-info", :style => "width: 200px; height: 30px;" %>
 
 <% end -%>

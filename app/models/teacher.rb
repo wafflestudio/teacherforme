@@ -19,10 +19,9 @@ class Teacher
   field :sex, type: Boolean
   field :want_sex, type: Integer
   field :subject
-  field :phone
-  field :email
   field :location
   field :comment
 
   belongs_to :university
+  belongs_to :user
 end

@@ -6,10 +6,11 @@ Teacherforme::Application.routes.draw do
     get "/me" => "users#me", :as => 'me'
   end
 
+  get "check_email" => "api#check_email", :as => "check_email"
 
   resources :teachers
 
-  get "students" => "students#index", :as => "students"
+  resources :students
 
   get "about" => "main#about", :as => "about"
 
