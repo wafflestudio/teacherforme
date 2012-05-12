@@ -22,10 +22,15 @@ class Teacher
   field :subject
   field :location
   field :comment
+  field :confirmed, type: Boolean, default: false
 
   belongs_to :university
   belongs_to :user
-  has_many :replies, as: :receivable
+  has_many :replies, as: :receiver
+
+  def confirmed?
+    self.confirmed
+  end
 
   def want_sex_str
     if self.want_sex == 0
@@ -45,4 +50,9 @@ class Teacher
     end
     res
   end
+
+  def contact(current_user, message)
+    ContactMailer.contact_to_teacher_email(current_user,self,message).deliver
+  end
+
 end

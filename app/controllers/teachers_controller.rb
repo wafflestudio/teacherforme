@@ -4,37 +4,27 @@ class TeachersController < ApplicationController
   before_filter :find_or_create_user, :only => [:create]
 
   def index
-    @teachers = Teacher.where("user.confirmed?" == true)
+    @teachers = Teacher.where(:confirmed => true)
+    #@teachers = Teacher.all
     @reply = Reply.new
   end
   def create
     @teacher = Teacher.new(params[:teacher])
     @teacher.user = @user
+    if @user.confirmed?
+      @teacher.confirmed = true
+    end
     if @teacher.save
-      flash[:success] = "Teacher info was created successfully"
+      flash[:success] = "선생님 정보가 생성되었습니다."
       unless @teacher.user.confirmed?
         flash[:info] = "적어주신 이메일주소로 확인메일이 전송됩니다. 인증후 목록에 보이게 됩니다."
       end
       redirect_to teachers_path
     else
-      flash[:error] = "Teacher info was not created"
+      flash[:error] = "선생님 정보가 생성되지 않았습니다."
       redirect_to root_path
     end
   end
-
-  def contact
-    if user_signed_in?
-      @teacher = Teacher.find params[:id]
-      ContactMailer.contact_to_teacher_email(current_user,@teacher).deliver
-      @teacher.contact(current_user)
-      redirect_to students_path
-    else
-      flash[:error] = "연락하기 위해선 로그인이 필요합니다."
-      redirect_to new_user_session_path
-    end
-  end
-
-
 
   private
 

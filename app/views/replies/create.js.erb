@@ -1,0 +1,7 @@
+<% if @flag == true -%>
+  $('div.navbar.navbar-fixed-top').after('<div class="alert alert-success"></div>');
+  $('div.alert.alert-success').append('<%= escape_javascript(flash[:success]) %>');
+<% else -%>
+  $('div.navbar.navbar-fixed-top').after('<div class="alert alert-error"></div>');
+  $('div.alert.alert-error').append('<%= escape_javascript(flash[:error]) %>');
+<% end -%>

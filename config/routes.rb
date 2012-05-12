@@ -2,7 +2,7 @@ Teacherforme::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users do
+  devise_for :users, :controllers => {:confirmations => "confirmations"} do
     get "/me" => "users#me", :as => 'me'
   end
 

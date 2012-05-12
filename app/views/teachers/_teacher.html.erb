@@ -7,9 +7,11 @@
     보수로는 <b><%= teacher.pay %></b>만원 (8회 2시간씩 기준) 이상을 원하고 
     <%= teacher.comment %><br />
     연락주세요 ^^!
-    <%= form_for @reply do |f| %>
-      <div class="contact_form"><%= f.text_area :comment, :rows => 3 %></div>
-      <%= f.submit '연락하기', :class => "btn sendContact", :style => "position: absolute; right: 0; top:0; padding-top: 35px; height: 47px; width: 55px;" %>
+    <%= form_tag replies_path, :remote => true do %>
+      <%= hidden_field_tag "type", "teacher" %>
+      <%= hidden_field_tag "receiver_id", teacher.id.to_s %>
+      <div class="contact_form"><%= text_area_tag "reply[comment]", nil, :rows => 4 %></div>
+      <%= submit_tag '연락하기', :class => "btn sendContact" %>
     <% end -%>
   </td>
 </tr>

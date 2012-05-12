@@ -8,6 +8,11 @@
     입니다.<br />
     <b><%= student.comment %></b><br />
     연락주세요!!
-
+    <%= form_tag replies_path, :remote => true do %>
+      <%= hidden_field_tag "type", "student" %>
+      <%= hidden_field_tag "receiver_id", student.id.to_s %>
+      <div class="contact_form"><%= text_area_tag "reply[comment]", nil, :rows => 4 %></div>
+      <%= submit_tag '연락하기', :class => "btn sendContact" %>
+    <% end -%>
   </td>
 </tr>

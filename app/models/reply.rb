@@ -7,6 +7,6 @@ class Reply
   belongs_to :user  # sender
 
   # receiver
-  belongs_to :receivable, polymorphic: true
+  belongs_to :receiver, polymorphic: true
 
 end
