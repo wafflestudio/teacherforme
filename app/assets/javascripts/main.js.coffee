@@ -16,7 +16,7 @@ $ ->
   t_login_password_box.detach()
 
   # trigger change for check email
-  t_email_field.change ->
+  t_email_field.keyup ->
     $.getJSON '/check_email', {email: t_email_field.val()}, (data)->
       if data.res == "exists"
         t_new_password_box.detach()
@@ -55,7 +55,7 @@ $ ->
   s_login_password_box.detach()
 
   # trigger change for check email
-  s_email_field.change ->
+  s_email_field.keyup ->
     $.getJSON '/check_email', {email: s_email_field.val()}, (data)->
       if data.res == "exists"
         s_new_password_box.detach()

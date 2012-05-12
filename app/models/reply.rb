@@ -2,8 +2,11 @@ class Reply
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :content, type: String
-  field :phone, type: String
-  field :email, type: String
+  field :comment, type: String
+
+  belongs_to :user  # sender
+
+  # receiver
+  belongs_to :receivable, polymorphic: true
 
 end

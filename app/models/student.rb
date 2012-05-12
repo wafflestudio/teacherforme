@@ -13,6 +13,7 @@ class Student
   field :comment
 
   belongs_to :user
+  has_many :replies, as: :receivable
 
   def want_sex_str
     if self.want_sex == 0

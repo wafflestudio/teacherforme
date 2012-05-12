@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.where("user.confirmed?" == true)
+    @reply = Reply.new
   end
   def create
     @teacher = Teacher.new(params[:teacher])
@@ -22,9 +23,15 @@ class TeachersController < ApplicationController
   end
 
   def contact
-    @teacher = Teacher.find params[:id]
-    @teacher.contact
-    redirect_to students_path
+    if user_signed_in?
+      @teacher = Teacher.find params[:id]
+      ContactMailer.contact_to_teacher_email(current_user,@teacher).deliver
+      @teacher.contact(current_user)
+      redirect_to students_path
+    else
+      flash[:error] = "연락하기 위해선 로그인이 필요합니다."
+      redirect_to new_user_session_path
+    end
   end
 
 

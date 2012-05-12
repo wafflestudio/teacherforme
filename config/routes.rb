@@ -14,6 +14,8 @@ Teacherforme::Application.routes.draw do
 
   get "about" => "main#about", :as => "about"
 
+  resources :replies
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
