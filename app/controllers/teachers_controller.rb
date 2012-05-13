@@ -26,6 +26,27 @@ class TeachersController < ApplicationController
     end
   end
 
+  def edit
+    @teacher = Teacher.find params[:id]
+  end
+
+  def update
+    @teacher = Teacher.find params[:id]
+    if @teacher.update_attributes params[:teacher]
+      flash[:success] = "성공적으로 수정되었습니다."
+      redirect_to me_path
+    else
+      flash[:error] = "수정중에 오류가 발생했습니다."
+      redirect_to me_path
+    end
+  end
+
+  def complete
+    @teacher = Teacher.find params[:id]
+    @teacher.update_attribute(:complete, true)
+    redirect_to me_path
+  end
+
   private
 
   def find_or_create_user

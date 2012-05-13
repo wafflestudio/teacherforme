@@ -1,0 +1,14 @@
+<tr>
+  <td style="position: relative;">
+    저는 <b><%= teacher.sex ? "여자" : "남자" %></b> 선생님 이고 <b><%= teacher.age %></b>살이며
+    <b><%= teacher.subject %></b> 과목을 가르칠 수 있습니다.<br />
+    가르칠 수 있는 대상은 <b><%= teacher.year_str %> <%= teacher.want_sex_str %></b>이고 
+    가르칠 수 있는 지역은 <b><%= teacher.location %></b> 이에요.<br />
+    보수로는 <b><%= teacher.pay %></b>만원 (8회 2시간씩 기준) 이상을 원하고 
+    <%= teacher.comment %><br />
+    연락주세요 ^^!
+    <%= link_to 'edit', edit_teacher_path(teacher) %>
+    <%= link_to 'complete', complete_teacher_path(teacher) %>
+    <%= teacher.complete? ? "complete" : "uncomplete" %>
+  </td>
+</tr>

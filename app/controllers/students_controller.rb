@@ -23,6 +23,26 @@ class StudentsController < ApplicationController
     end
   end
 
+  def edit
+    @student = student.find params[:id]
+  end
+
+  def update
+    @student = student.find params[:id]
+    if @student.update_attributes params[:student]
+      flash[:success] = "성공적으로 수정되었습니다."
+      redirect_to me_path
+    else
+      flash[:error] = "수정중에 오류가 발생했습니다."
+      redirect_to me_path
+    end
+  end
+
+  def complete
+    @student = Student.find params[:id]
+    @student.update_attribute(:complete, true)
+    redirect_to me_path
+  end
 
   private
 

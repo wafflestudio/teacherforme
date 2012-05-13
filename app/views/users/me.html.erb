@@ -1,3 +1,22 @@
-<h1>Users#me</h1>
-<p>Find me in app/views/users/me.html.erb</p>
-<%= current_user.email %>
+<h2><%= current_user.email %>님의 페이지입니다.</h2>
+
+<h3>My Contact Info</h3>
+<%= form_for @user do |f| %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <%= f.submit '수정하기' %>
+<% end -%>
+
+<h3>My Info as Teacher</h2>
+
+<table class="table table-striped" style="width: 100%">
+  <tbody>
+    <%= render :partial => "users/teacher", :collection => @teachers %>
+  </tbody>
+</table>
+<h3>My Info as Student</h2>
+<table class="table table-striped" style="width: 100%">
+  <tbody>
+    <%= render :partial => "users/student", :collection => @students %>
+  </tbody>
+</table>

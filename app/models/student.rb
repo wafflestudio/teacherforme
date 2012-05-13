@@ -12,6 +12,7 @@ class Student
   field :location
   field :comment
   field :confirmed, type: Boolean, default: false
+  field :complete, type: Boolean, default: false
 
   belongs_to :user
   has_many :replies, as: :receiver

@@ -4,13 +4,19 @@ Teacherforme::Application.routes.draw do
 
   devise_for :users, :controllers => {:confirmations => "confirmations"} do
     get "/me" => "users#me", :as => 'me'
+    put "/users/:id" => "users#update", :as => "user"
+    get "/users/:id" => "users#edit",:as => "edit_user"
   end
 
   get "check_email" => "api#check_email", :as => "check_email"
 
-  resources :teachers
+  resources :teachers do 
+    get "/complete" => "teachers#complete", :as => "complete", :on => :member
+  end
 
-  resources :students
+  resources :students do
+    get "/complete" => "students#complete", :as => "complete", :on => :member
+  end
 
   get "about" => "main#about", :as => "about"
 

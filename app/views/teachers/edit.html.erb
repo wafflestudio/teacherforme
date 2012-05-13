@@ -1,0 +1,20 @@
+<%= form_for @teacher, :html => { :class => "well", :style => "margin-top: 15px;"} do |f| %>
+  <h1 style="margin-top: 10px; margin-bottom: 10px;">저는 책임감 있는 선생님이고 지금 학생을 구하고 있어요</h1>
+  저는 <%= f.select :sex, '<option value="true">여자</option><option value="false">남자</option>'.html_safe %> 선생님 이고 <%= f.number_field :age %>살이며 
+  <%= f.text_field :subject, :placeholder => "ex) 수학, 영어" %> 과목을 가르칠 수 있습니다.<br />
+  가르칠 수 있는 대상은 
+  <%# checklabel_tag in teachers helper -%>
+  <%= checklabel_tag(Teacher::ELEMENTRY[0], Teacher::ELEMENTRY[1]) %>
+  , <%= checklabel_tag(Teacher::MIDDLE1[0], Teacher::MIDDLE1[1]) %>
+  , <%= checklabel_tag(Teacher::MIDDLE2[0], Teacher::MIDDLE2[1]) %>
+  , <%= checklabel_tag(Teacher::MIDDLE3[0], Teacher::MIDDLE3[1]) %>
+  , <%= checklabel_tag(Teacher::HIGH1[0], Teacher::HIGH1[1]) %>
+  , <%= checklabel_tag(Teacher::HIGH2[0], Teacher::HIGH2[1]) %>
+  , <%= checklabel_tag(Teacher::HIGH3[0], Teacher::HIGH3[1]) %>
+  , <%= checklabel_tag(Teacher::GENERAL[0], Teacher::GENERAL[1] ) %>
+  <%= f.select :want_sex, '<option value="0">남녀모두</option><option value="1">여자</option><option value="2">남자</option>'.html_safe %>이고 <br />
+  가르칠 수 있는 지역은 <%= f.text_field :location, :placeholder => "ex) 서울, 경기, 대학동" %> 이에요.<br />
+  보수로는 <%= f.number_field :pay %>만원 (8회 2시간씩 기준) 이상을 원하고<br />
+  <%= f.text_area :comment, :rows => 3, :placeholder => "한마디 ex) 학생을 성실히 지도할것입니다.", :style => "width: 400px;" %><br />
+  <%= f.submit '연락주세요^^!', :class => "btn btn-success", :style => "width: 200px; height: 30px;" %>
+<% end -%>
