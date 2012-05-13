@@ -5,7 +5,6 @@ Teacherforme::Application.routes.draw do
   devise_for :users, :controllers => {:confirmations => "confirmations"} do
     get "/me" => "users#me", :as => 'me'
     put "/users/:id" => "users#update", :as => "user"
-    get "/users/:id" => "users#edit",:as => "edit_user"
   end
 
   get "check_email" => "api#check_email", :as => "check_email"

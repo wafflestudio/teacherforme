@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @teachers = current_user.teachers.desc('created_at')
     @students = current_user.students.desc('created_at')
   end
+
   def update
     @user = current_user
     if @user.update_attributes params[:user]
