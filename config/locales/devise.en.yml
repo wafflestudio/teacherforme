@@ -1,3 +1,4 @@
+#coding : utf-8
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
@@ -50,8 +51,8 @@ en:
       failure: 'Could not authorize you from %{kind} because "%{reason}".'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Teacher for me 인증 메일입니다.'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'Teacher for me 비밀번호 수정 메일입니다.'
       unlock_instructions:
         subject: 'Unlock Instructions'
