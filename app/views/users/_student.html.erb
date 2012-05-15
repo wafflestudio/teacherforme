@@ -8,8 +8,13 @@
     입니다.<br />
     <b><%= student.comment %></b><br />
     연락주세요!!
-    <%= link_to 'edit', edit_student_path(student) %>
-    <%= link_to 'complete', complete_student_path(student) %>
-    <%= student.complete? ? "complete" : "uncomplete" %>
+    <%= link_to '수정하기', edit_student_path(student) %>
+    <% if student.complete? %>
+      <%= link_to '진행중으로 만들기', incomplete_student_path(student) %>
+      <br /><span class="label label-success">완료</span>
+    <% else -%>
+      <%= link_to '완료로 만들기', complete_student_path(student) %>
+      <br /><span class="label label-warning">진행중</span>
+    <% end -%>
   </td>
 </tr>

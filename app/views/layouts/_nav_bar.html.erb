@@ -8,6 +8,7 @@
         <li<%= params[:controller]=="teachers" ? ' class=active' : '' %>><a href="<%= teachers_path %>">선생님들</a></li>
         <li<%= params[:controller]=="students" ? ' class=active' : '' %>><a href="<%= students_path %>">학생/학부모님들</a></li>
         <!--<li<%= params[:action]=="about" ? ' class=active' : '' %>><a href="<%= about_path %>">About</a></li> -->
+        <li<%= params[:action]=="help" ? ' class=active' : '' %>><a href="<%= help_path %>">도움말</a></li>
         <% if user_signed_in? -%>
           <li><%= link_to '관리', me_path %></li>
         <% end -%>

@@ -4,9 +4,7 @@ class TeachersController < ApplicationController
   before_filter :find_or_create_user, :only => [:create]
 
   def index
-    @teachers = Teacher.where(:confirmed => true)
-    #@teachers = Teacher.all
-    @reply = Reply.new
+    @teachers = Teacher.where(:confirmed => true, :complete => false)
   end
   def create
     @teacher = Teacher.new(params[:teacher])
@@ -41,6 +39,11 @@ class TeachersController < ApplicationController
     end
   end
 
+  def incomplete
+    @teacher = Teacher.find params[:id]
+    @teacher.update_attribute(:complete, false)
+    redirect_to me_path
+  end
   def complete
     @teacher = Teacher.find params[:id]
     @teacher.update_attribute(:complete, true)

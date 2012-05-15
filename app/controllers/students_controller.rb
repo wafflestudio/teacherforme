@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   before_filter :authenticate_user!, :only => [:contact]
   before_filter :find_or_create_user, :only => [:create]
   def index
-    @students = Student.where(:confirmed => true)
+    @students = Student.where(:confirmed => true, :complete => false)
   end
   def create
     @student = Student.new(params[:student])
@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = student.find params[:id]
+    @student = Student.find params[:id]
   end
 
   def update
@@ -38,6 +38,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  def incomplete
+    @student = Student.find params[:id]
+    @student.update_attribute(:complete, false)
+    redirect_to me_path
+  end
   def complete
     @student = Student.find params[:id]
     @student.update_attribute(:complete, true)

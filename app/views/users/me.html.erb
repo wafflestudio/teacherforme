@@ -1,10 +1,10 @@
 <h2><%= current_user.email %>님의 페이지입니다.</h2>
 
 <h3>My Contact Info</h3>
-<%= form_for @user do |f| %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-  <%= f.submit '수정하기' %>
+<%= form_tag user_registration_path, :method => "put" do %>
+  <%= label_tag "user[phone]", "Phone Number" %>
+  <%= text_field_tag "user[phone]", current_user.phone %>
+  <%= submit_tag '수정하기' %>
 <% end -%>
 
 <h3>My Info as Teacher</h2>

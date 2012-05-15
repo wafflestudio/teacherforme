@@ -7,8 +7,13 @@
     보수로는 <b><%= teacher.pay %></b>만원 (8회 2시간씩 기준) 이상을 원하고 
     <%= teacher.comment %><br />
     연락주세요 ^^!
-    <%= link_to 'edit', edit_teacher_path(teacher) %>
-    <%= link_to 'complete', complete_teacher_path(teacher) %>
-    <%= teacher.complete? ? "complete" : "uncomplete" %>
+    <%= link_to '수정하기', edit_teacher_path(teacher) %>
+    <% if teacher.complete? %>
+      <%= link_to '진행중으로 만들기', incomplete_teacher_path(teacher) %>
+      <br /><span class="label label-success">완료</span>
+    <% else -%>
+      <%= link_to '완료로 만들기', complete_teacher_path(teacher) %>
+      <br /><span class="label label-warning">진행중</span>
+    <% end -%>
   </td>
 </tr>

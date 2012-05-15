@@ -2,22 +2,25 @@ Teacherforme::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users, :controllers => {:confirmations => "confirmations"} do
-    get "/me" => "users#me", :as => 'me'
-    put "/users/:id" => "users#update", :as => "user"
+  get "/me" => "users#me", :as => 'me'
+
+  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => "confirmations"} do
   end
 
   get "check_email" => "api#check_email", :as => "check_email"
 
   resources :teachers do 
     get "/complete" => "teachers#complete", :as => "complete", :on => :member
+    get "/incomplete" => "teachers#incomplete", :as => "incomplete", :on => :member
   end
 
   resources :students do
     get "/complete" => "students#complete", :as => "complete", :on => :member
+    get "/incomplete" => "students#incomplete", :as => "incomplete", :on => :member
   end
 
   get "about" => "main#about", :as => "about"
+  get "help" => "main#help", :as => "help"
 
   resources :replies
 
